@@ -23,7 +23,7 @@ namespace EssentialDotNetConfiguration
             Assert.AreEqual<string>(Program.DefaultConnectionString,
                 Program.Configuration[$"AppConfiguration:ConnectionString"]);
 
-            Assert.AreEqual<int>(40, 
+            Assert.AreEqual<int>(400, 
                 Program.Configuration.Get<int>(
                     "AppConfiguration:MainWindow:Height"));
             Assert.AreEqual<int>(42,
