@@ -26,7 +26,8 @@ namespace EssentialDotNetConfiguration
             Assert.AreEqual<int>(400, 
                 Program.Configuration.Get<int>(
                     "AppConfiguration:MainWindow:Height"));
-            Assert.AreEqual<int>(42,
+
+            Assert.AreEqual<int>(80,
                 Program.Configuration.Get<int>("AppConfiguration:MainWindow:ScreenBufferSize", 80));
 
             AppConfiguration appConfiguration = 
@@ -38,6 +39,10 @@ namespace EssentialDotNetConfiguration
         public void FullConfiguration()
         {
             string[] args = { "/Top=42", "-Left=42" };
+            InMemoryCollectionOnly_SetConfigurationSucessfully();
+            Assert.AreEqual<int>(0,
+                Program.Configuration.Get<int>(
+                    "AppConfiguration:MainWindow:Left"));
             Program.Main(args);
             InMemoryCollectionOnly_SetConfigurationSucessfully();
             Assert.AreEqual<int>(42,

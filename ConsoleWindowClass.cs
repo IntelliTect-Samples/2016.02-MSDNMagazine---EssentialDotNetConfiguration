@@ -9,9 +9,13 @@ namespace EssentialDotNetConfiguration
 {
     public class ConsoleWindow
     {
+        public const int DefaultHeight = 400;
+        public const int DefaultWidth = 600;
+
         public ConsoleWindow(){}
 
-        public ConsoleWindow(int height, int width, int top = 0, int left = 0)
+        public ConsoleWindow(
+            int height=DefaultHeight, int width=DefaultWidth, int top = 0, int left = 0)
         {
             Height = height;
             Width = width;
@@ -19,8 +23,8 @@ namespace EssentialDotNetConfiguration
             Left = left;
         }
 
-        public int Height { get; }
-        public int Width { get; }
+        public int Height { get; } = DefaultHeight;
+        public int Width { get; } = DefaultWidth;
         public int Top { get; }
         public int Left { get; }
 
