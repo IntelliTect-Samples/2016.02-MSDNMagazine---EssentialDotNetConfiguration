@@ -40,21 +40,16 @@ namespace EssentialDotNetConfiguration
             ConfigurationBuilder configurationBuilder =
                     new ConfigurationBuilder();
 
+            configurationBuilder.AddInMemoryCollection(
+                DefaultConfigurationStrings);
 
-            if (args == null)
-            {
-                // Add defaultConfigurationStrings
-                configurationBuilder.AddInMemoryCollection(
-                    DefaultConfigurationStrings);
-            }
-            else
+            if (args != null)
             {
                 configurationBuilder
-                    .AddInMemoryCollection(DefaultConfigurationStrings)
                     .AddJsonFile("Config.json",
                         true) // bool indicates file is optional
-                              // "EssentialDotNetConfiguartion" is an optional prefix for all 
-                              // environment configuration keys  
+                              // "EssentialDotNetConfiguartion" is an optional 
+                              // prefix for all environment configuration keys  
                     .AddEnvironmentVariables("EssentialDotNetConfiguration")
                     .AddCommandLine(
                         args, GetSwitchMappings(DefaultConfigurationStrings));
